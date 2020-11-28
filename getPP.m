@@ -9,10 +9,10 @@ clear all
 % length of links(a1, a2), 
 % width of center rectangle(wc)
 
-wc = 100
-L = 500
-a1 = 350
-a2 = 350
+wc = 100;
+L = 500;
+a1 = 350;
+a2 = 350;
 
 %% calculate ox oy oz(end parametric point(w.r.t each subsystem coordinate) of each links)
 
