@@ -45,20 +45,10 @@ Dx = (ox(2)^2 + ox(3)^2 - a1^2 - a2^2) / (2*a1*a2);
 Dy = (oy(2)^2 + oy(3)^2 - a1^2 - a2^2) / (2*a1*a2); 
 Dz = (oz(2)^2 + oz(3)^2 - a1^2 - a2^2) / (2*a1*a2); 
 
-th2x = atan2d(sqrt(1 - Dx^2), Dx);
-th2y = atan2d(sqrt(1 - Dy^2), Dy);
-th2z = atan2d(sqrt(1 - Dz^2), Dz);
-
-% must 
-if th2x < 0
-    th2x = atan2d(-sqrt(1 - Dx^2), Dx);
-end
-if th2y < 0
-    th2y = atan2d(-sqrt(1 - Dy^2), Dy);
-end
-if th2z < 0
-    th2z = atan2d(-sqrt(1 - Dz^2), Dz);
-end
+% these links must be under elbow state. 
+th2x = max(atan2d(sqrt(1 - Dx^2), Dx), atan2d(-sqrt(1 - Dx^2), Dx));
+th2y = max(atan2d(sqrt(1 - Dy^2), Dy), atan2d(-sqrt(1 - Dy^2), Dy));
+th2z = max(atan2d(sqrt(1 - Dz^2), Dz), atan2d(-sqrt(1 - Dy^2), Dy));
 
 th1x = atan2d(ox(3), ox(2)) - atan2d(a2*sind(th2x), a1+a2*cosd(th2x));
 th1y = atan2d(oy(3), oy(2)) - atan2d(a2*sind(th2y), a1+a2*cosd(th2y));
